@@ -7,14 +7,24 @@ const cx = classnames.bind(styles);
 
 const AddTodo = props => {
   const [value, setValue] = useState("");
+
   const handleChange = e => {
     setValue(e.target.value);
+  };
+
+  const handleClick = () => {
+    if (value.trim() === "") {
+      alert("값을 입력해주세요.");
+      return;
+    }
+    props.TodoActions.addTodo(value);
+    setValue("");
   };
 
   return (
     <React.Fragment>
       <input type="text" onChange={handleChange} value={value} />
-      <button>추가</button>
+      <button onClick={handleClick}>추가</button>
     </React.Fragment>
   );
 };

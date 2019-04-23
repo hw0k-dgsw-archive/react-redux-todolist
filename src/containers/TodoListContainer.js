@@ -4,7 +4,7 @@ import TodoList from "/components/TodoList";
 
 export default connect(
   state => ({
-    todos: state.todo.get("todos")
+    todos: state.todo
   }),
   null
 )(TodoList);

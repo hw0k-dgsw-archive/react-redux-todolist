@@ -5,11 +5,11 @@ import styles from "./TodoList.scss";
 
 const cx = classnames.bind(styles);
 
-import TodoItem from "/components/TodoItem";
+import TodoItemContainer from "/containers/TodoItemContainer";
 
 const TodoList = props => {
   const { todos } = props;
-  const todosElement = todos.map((todo, i) => <TodoItem key={i} todo={todo} />);
+  const todosElement = todos.map(todo => <TodoItemContainer key={todo.get("id")} todo={todo} />);
   return (
     <ul>
       {todosElement}

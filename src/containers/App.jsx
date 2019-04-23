@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
-import AddTodo from "/components/AddTodo";
+import AddTodoContainer from "/containers/AddTodoContainer";
 import TodoListContainer from "/containers/TodoListContainer";
 import DeleteAllTodo from "../components/DeleteAllTodo/DeleteAllTodo";
 
 const App = () => {
   return (
     <div>
-      <AddTodo />
+      <AddTodoContainer />
       <TodoListContainer />
       <DeleteAllTodo />
     </div>
