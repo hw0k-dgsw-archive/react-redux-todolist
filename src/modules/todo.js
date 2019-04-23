@@ -4,12 +4,12 @@ import { Map, List } from "immutable";
 const ADD_TODO = "todo/addTodo";
 const REMOVE_TODO = "todo/removeTodo";
 const TOGGLE_TODO = "todo/toggleTodo";
-const REMOVE_ALL_TODO = "todo/removeAllTodos";
+const REMOVE_ALL_TODOS = "todo/removeAllTodos";
 
 export const addTodo = createAction(ADD_TODO);
 export const removeTodo = createAction(REMOVE_TODO);
 export const toggleTodo = createAction(TOGGLE_TODO);
-export const removeAllTodos = createAction(REMOVE_ALL_TODO);
+export const removeAllTodos = createAction(REMOVE_ALL_TODOS);
 
 const initialState = List([
   Map({
@@ -26,8 +26,12 @@ const initialState = List([
 
 const reducer = handleActions({
   [ADD_TODO]: (state, action) => {
+    const newId = state.size > 0
+      ? state.maxBy(todo => todo.get("id")).get("id") + 1
+      : 0;
+    
     return state.push(Map({
-      id: state.reduce((maxId, todo) => Math.max(todo.get("id"), maxId) - 1) + 1,
+      id: newId,
       title: action.payload,
       completed: false
     }));
@@ -42,8 +46,8 @@ const reducer = handleActions({
 
     return state.setIn([index, "completed"], !state.getIn([index, "completed"]));
   },
-  [REMOVE_ALL_TODO]: (state, action) => {
-    
+  [REMOVE_ALL_TODOS]: (state, action) => {
+    return List([]);
   }
 }, initialState);
 

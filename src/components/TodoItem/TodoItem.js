@@ -12,14 +12,14 @@ const TodoItem = props => {
     TodoActions.toggleTodo(todo.get("id"));
   };
 
-  const handleDelete = () => {
+  const handleRemove = () => {
     TodoActions.removeTodo(todo.get("id"));
   };
 
   return (
     <li>
       <span onClick={handleToggle} className={cx({completed: todo.get("completed")})}>{todo.get("title")}</span>
-      <span onClick={handleDelete}>&times;</span>
+      <span onClick={handleRemove}>&times;</span>
     </li>
   );
 };

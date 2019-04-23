@@ -2,14 +2,14 @@ import React from "react";
 
 import AddTodoContainer from "/containers/AddTodoContainer";
 import TodoListContainer from "/containers/TodoListContainer";
-import DeleteAllTodo from "../components/DeleteAllTodo/DeleteAllTodo";
+import RemoveAllTodoContainer from "/containers/RemoveAllTodoContainer";
 
 const App = () => {
   return (
     <div>
       <AddTodoContainer />
       <TodoListContainer />
-      <DeleteAllTodo />
+      <RemoveAllTodoContainer />
     </div>
   )
 };
