@@ -1,10 +1,5 @@
 import React from "react";
 
-import classnames from "classnames/bind"
-import styles from "./RemoveAllTodo.scss";
-
-const cx = classnames.bind(styles);
-
 const RemoveAllTodo = props => {
   const { TodoActions } = props;
   const handleRemoveAll = () => {

@@ -1,10 +1,5 @@
 import React, { useState } from "react";
 
-import classnames from "classnames/bind"
-import styles from "./AddTodo.scss";
-
-const cx = classnames.bind(styles);
-
 const AddTodo = props => {
   const [value, setValue] = useState("");
 
@@ -22,10 +17,10 @@ const AddTodo = props => {
   };
 
   return (
-    <React.Fragment>
+    <div>
       <input type="text" onChange={handleChange} value={value} />
       <button onClick={handleClick}>추가</button>
-    </React.Fragment>
+    </div>
   );
 };
 
